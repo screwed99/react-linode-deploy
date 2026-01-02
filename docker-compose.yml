@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+      target: dev
+    container_name: dev-backend
+    env_file: .env
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:${API_PORT}"
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: dev
+    container_name: dev-frontend
+    command: npm run dev -- --host
+    env_file: .env
+    environment:
+      - API_HOST=backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "80:${FRONTEND_PORT}"
+    depends_on:
+      - backend

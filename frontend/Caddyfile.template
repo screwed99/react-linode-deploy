@@ -1,0 +1,9 @@
+# Listen on the port defined in your .env file
+:{$FRONTEND_PORT} {
+    root * /srv
+    encode gzip
+    file_server
+
+    # SPA Fallback: If file not found, serve index.html
+    try_files {path} /index.html
+}
