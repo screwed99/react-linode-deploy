@@ -3,15 +3,6 @@ import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// Helper to enforce env vars
-const requireEnv = (env: Record<string, string>, key: string) => {
-  const value = env[key];
-  if (!value) {
-    throw new Error(`❌ CRITICAL: Missing Environment Variable: ${key}`);
-  }
-  return value;
-};
-
 export default defineConfig(({ mode }) => {
   const envDir = path.resolve(__dirname, '..');
   const env = loadEnv(mode, envDir, '');
