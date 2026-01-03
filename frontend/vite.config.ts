@@ -36,6 +36,7 @@ export default defineConfig(({ mode }) => {
         }
       })
     ],
+    // Only used for dev-mode i.e. npm run dev
     server: {
       port: frontendPort,
       host: true,
