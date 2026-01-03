@@ -1,5 +1,6 @@
-# Listen on the port defined in your .env file
-:{$FRONTEND_PORT} {
+:80 {
+    # The :80 explicitly tells Caddy "HTTP ONLY".
+    # It disables all Auto-HTTPS logic.
     root * /srv
     encode gzip
     file_server
