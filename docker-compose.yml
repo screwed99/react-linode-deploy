@@ -18,6 +18,7 @@ services:
       target: dev
     container_name: dev-frontend
     command: npm run dev -- --host
+    # TODO: Remove `env_file` entries?
     env_file: .env
     environment:
       - API_HOST=backend

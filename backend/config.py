@@ -7,13 +7,12 @@ ENV_FILE_PATH = ROOT_DIR / ".env"
 
 class Settings(BaseSettings):
     environment: str
-    api_port: int
     allowed_origins: str
 
     model_config = SettingsConfigDict(
         env_file=ENV_FILE_PATH,
         env_file_encoding='utf-8',
-        # "ignore" allows extra variables (like FRONTEND_PORT) in the .env 
+        # "ignore" allows extra variables in the .env 
         # without throwing an error
         extra='ignore' 
     )
